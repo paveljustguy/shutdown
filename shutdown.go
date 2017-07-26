@@ -84,12 +84,6 @@ type LogPrinter interface {
 	Printf(format string, v ...interface{})
 }
 
-func waitSignal() os.Signal {
-	ch := make(chan os.Signal)
-	signal.Notify(ch, syscall.SIGINT, syscall.SIGTERM)
-	return <-ch
-}
-
 type signalWaiter interface {
 	wait() os.Signal
 }
