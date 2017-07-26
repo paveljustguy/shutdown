@@ -52,7 +52,7 @@ func Wait() {
 	sig := sw.wait()
 	Logger.Printf("Signal '%s' recieved.", names[sig])
 
-	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), Timeout)
 	defer cancel()
 
 	var wg sync.WaitGroup
