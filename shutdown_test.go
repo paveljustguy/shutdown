@@ -23,7 +23,7 @@ type fakeSignalWaiter struct{}
 func (f fakeSignalWaiter) wait() os.Signal {
 	return syscall.SIGINT
 }
-func TestWait(t *testing.T) {
+func TestWaitWithNoopShutdowner(t *testing.T) {
 	sw = fakeSignalWaiter{}
 	Add(noopShutdowner)
 
